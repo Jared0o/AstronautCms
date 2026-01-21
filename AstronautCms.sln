@@ -1,8 +1,32 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{90DA2701-BDD9-44BF-B491-B8DBF3318EFE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{7DD1C12D-1484-4E3B-9066-D353258B5C15}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{875DB382-F601-4CED-A9D7-9202B67E0D50}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{BA65204F-49BD-4DE7-A13E-B918487ACE54}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{F74C24C5-1330-4EED-9B67-691ED1D0772F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstronautCms.Api", "src\Api\AstronautCms.Api\AstronautCms.Api.csproj", "{D52BB696-947E-426B-B132-A24D76696E58}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{875DB382-F601-4CED-A9D7-9202B67E0D50} = {90DA2701-BDD9-44BF-B491-B8DBF3318EFE}
+		{BA65204F-49BD-4DE7-A13E-B918487ACE54} = {90DA2701-BDD9-44BF-B491-B8DBF3318EFE}
+		{F74C24C5-1330-4EED-9B67-691ED1D0772F} = {90DA2701-BDD9-44BF-B491-B8DBF3318EFE}
+		{D52BB696-947E-426B-B132-A24D76696E58} = {BA65204F-49BD-4DE7-A13E-B918487ACE54}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D52BB696-947E-426B-B132-A24D76696E58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D52BB696-947E-426B-B132-A24D76696E58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D52BB696-947E-426B-B132-A24D76696E58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D52BB696-947E-426B-B132-A24D76696E58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
