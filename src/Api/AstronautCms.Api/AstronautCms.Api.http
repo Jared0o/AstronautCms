@@ -1,6 +1,11 @@
-@AstronautCms.Api_HostAddress = http://localhost:5206
+@Host = https://localhost:7215
 
-GET {{AstronautCms.Api_HostAddress}}/weatherforecast/
-Accept: application/json
-
+#Get BASE API Information
+GET {{Host}}
 ###
+
+#health
+GET {{Host}}/health
+###
+
+
