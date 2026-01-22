@@ -4,5 +4,10 @@
         <PackageReference Include="Microsoft.AspNetCore.OpenApi"/>
         <PackageReference Include="Swashbuckle.AspNetCore" />
     </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\..\Modules\Users\AstronautCms.Modules.Users.Infrastructure\AstronautCms.Modules.Users.Infrastructure.csproj" />
+      <ProjectReference Include="..\..\Shared\AstronautCms.Shared.Abstract\AstronautCms.Shared.Abstract.csproj" />
+    </ItemGroup>
 
 </Project>
