@@ -20,6 +20,6 @@ public class UserModule : IModule
 
     public void Use(WebApplication app)
     {
-        app.MapGroup($"/{Path}").WithTags(Name).Map("/", () => "Users Module is running.");
+        app.MapGroup($"/{Path}").WithTags(Name).MapGet("/", () => "Users Module is running.");
     }
 }
