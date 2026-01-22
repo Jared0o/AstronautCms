@@ -7,19 +7,19 @@ public class CreateUserCommandValidator : AbstractValidator<CreateUserCommand>
     public CreateUserCommandValidator()
     {
         RuleFor(x => x.Email)
-            .NotEmpty().WithMessage("Email jest wymagany.")
-            .EmailAddress().WithMessage("Podaj poprawny adres email.");
+            .NotEmpty().WithMessage("Email is required.")
+            .EmailAddress().WithMessage("Please provide a valid email address.");
 
         RuleFor(x => x.Password)
-            .NotEmpty().WithMessage("Hasło jest wymagane.")
-            .MinimumLength(6).WithMessage("Hasło musi mieć co najmniej 6 znaków.")
-            .Matches("[A-Z]").WithMessage("Hasło musi zawierać co najmniej jedną wielką literę.")
-            .Matches("[a-z]").WithMessage("Hasło musi zawierać co najmniej jedną małą literę.")
-            .Matches("[0-9]").WithMessage("Hasło musi zawierać co najmniej jedną cyfrę.")
-            .Matches("[^a-zA-Z0-9]").WithMessage("Hasło musi zawierać co najmniej jeden znak specjalny.");
+            .NotEmpty().WithMessage("Password is required.")
+            .MinimumLength(6).WithMessage("Password must be at least 6 characters long.")
+            .Matches("[A-Z]").WithMessage("Password must contain at least one uppercase letter.")
+            .Matches("[a-z]").WithMessage("Password must contain at least one lowercase letter.")
+            .Matches("[0-9]").WithMessage("Password must contain at least one digit.")
+            .Matches("[^a-zA-Z0-9]").WithMessage("Password must contain at least one special character.");
 
         RuleFor(x => x.PasswordConfirm)
-            .NotEmpty().WithMessage("Potwierdzenie hasła jest wymagane.")
-            .Equal(x => x.Password).WithMessage("Hasła muszą być takie same.");
+            .NotEmpty().WithMessage("Password confirmation is required.")
+            .Equal(x => x.Password).WithMessage("Passwords must be the same.");
     }
 }
