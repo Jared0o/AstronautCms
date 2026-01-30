@@ -77,6 +77,12 @@
         "resolved": "10.1.0",
         "contentHash": "ilUsTvGA9hO1ulR7ibdWMWSg3438Iu+pDFcEYUorp+/ClHwaHFdpp/ATfBsFXv2sIRVDbQlEwd5BWBOdMdtKCA=="
       },
+      "astronautcms.modules.users.api": {
+        "type": "Project",
+        "dependencies": {
+          "AstronautCms.Modules.Users.Infrastructure": "[1.0.0, )"
+        }
+      },
       "astronautcms.modules.users.core": {
         "type": "Project",
         "dependencies": {
