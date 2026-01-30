@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -7,8 +8,10 @@ namespace AstronautCms.Shared.Abstract.Modules;
 public interface IModule
 {
     string Name { get; }
-    string Path { get; }
+    string RoutePrefix { get; }
+    bool Enabled { get; }
 
-    void Register(IServiceCollection services, IConfiguration configuration);
-    void Use(WebApplication app);
+    void RegisterServices(IServiceCollection services, IConfiguration configuration);
+    void RegisterEndpoints(RouteGroupBuilder routeBuilder);
+    Task RegisterMiddleware(IApplicationBuilder app);
 }

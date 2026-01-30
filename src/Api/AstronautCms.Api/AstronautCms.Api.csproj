@@ -6,7 +6,7 @@
     </ItemGroup>
     
     <ItemGroup>
-      <ProjectReference Include="..\..\Modules\Users\AstronautCms.Modules.Users.Infrastructure\AstronautCms.Modules.Users.Infrastructure.csproj" />
+      <ProjectReference Include="..\..\Modules\Users\AstronautCms.Modules.Users.Api\AstronautCms.Modules.Users.Api.csproj" />
       <ProjectReference Include="..\..\Shared\AstronautCms.Shared.Abstract\AstronautCms.Shared.Abstract.csproj" />
     </ItemGroup>
 
