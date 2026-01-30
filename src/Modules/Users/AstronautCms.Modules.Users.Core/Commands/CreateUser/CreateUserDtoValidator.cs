@@ -2,9 +2,9 @@
 
 namespace AstronautCms.Modules.Users.Core.Commands.CreateUser;
 
-public class CreateUserCommandValidator : AbstractValidator<CreateUserDto>
+public class CreateUserDtoValidator : AbstractValidator<CreateUserDto>
 {
-    public CreateUserCommandValidator()
+    public CreateUserDtoValidator()
     {
         RuleFor(x => x.Email)
             .NotEmpty().WithMessage("Email is required.")

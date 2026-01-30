@@ -201,8 +201,7 @@
       "astronautcms.shared.abstract": {
         "type": "Project",
         "dependencies": {
-          "FluentValidation.DependencyInjectionExtensions": "[12.1.1, )",
-          "Mediator.Abstractions": "[3.0.1, )"
+          "FluentValidation.DependencyInjectionExtensions": "[12.1.1, )"
         }
       },
       "astronautcms.shared.infrastructure": {
@@ -222,15 +221,6 @@
         "dependencies": {
           "FluentValidation": "12.1.1",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "2.1.0"
-        }
-      },
-      "Mediator.Abstractions": {
-        "type": "CentralTransitive",
-        "requested": "[3.0.1, )",
-        "resolved": "3.0.1",
-        "contentHash": "WLWp7S7pt818wsK2IiFwGwvUhwq0E/7F0LkglDQKx+4rSzRWVKD3CHtaCi1fpeURH+v44ZPxaRVBCNV7uWOBYQ==",
-        "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0"
         }
       },
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
