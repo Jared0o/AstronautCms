@@ -6,3 +6,10 @@ public class Role : IdentityRole<Guid>
 {
     
 }
+
+public enum RoleNames
+{
+    Admin,
+    Moderator,
+    User
+}

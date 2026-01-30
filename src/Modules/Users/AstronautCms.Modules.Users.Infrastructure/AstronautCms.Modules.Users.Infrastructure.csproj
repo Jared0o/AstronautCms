@@ -7,10 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Repositories\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\..\..\Shared\AstronautCms.Shared.Infrastructure\AstronautCms.Shared.Infrastructure.csproj" />
       <ProjectReference Include="..\AstronautCms.Modules.Users.Core\AstronautCms.Modules.Users.Core.csproj" />
     </ItemGroup>

@@ -11,12 +11,6 @@
           "FluentValidation": "12.1.1"
         }
       },
-      "Mediator.Abstractions": {
-        "type": "Direct",
-        "requested": "[3.0.1, )",
-        "resolved": "3.0.1",
-        "contentHash": "WLWp7S7pt818wsK2IiFwGwvUhwq0E/7F0LkglDQKx+4rSzRWVKD3CHtaCi1fpeURH+v44ZPxaRVBCNV7uWOBYQ=="
-      },
       "FluentValidation": {
         "type": "Transitive",
         "resolved": "12.1.1",

@@ -3,22 +3,21 @@ using AstronautCms.Modules.Users.Core.Repositories;
 using AstronautCms.Shared.Abstract.Result;
 using AstronautCms.Shared.Abstract.Result.CustomErrors;
 using FluentValidation;
-using Mediator;
 
-namespace AstronautCms.Modules.Users.Core.Commands;
+namespace AstronautCms.Modules.Users.Core.Commands.CreateUser;
 
-public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Result>
+public class CreateUserUseCase
 {
-    private readonly IValidator<CreateUserCommand> _validator;
+    private readonly IValidator<CreateUserDto> _validator;
     private readonly IUserRepository _userRepository;
 
-    public CreateUserCommandHandler(IValidator<CreateUserCommand> validator, IUserRepository userRepository)
+    public CreateUserUseCase(IValidator<CreateUserDto> validator, IUserRepository userRepository)
     {
         _validator = validator;
         _userRepository = userRepository;
     }
     
-    public async ValueTask<Result> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+    public async Task<Result> Execute(CreateUserDto request, CancellationToken cancellationToken)
     {
         var validationResult = await _validator.ValidateAsync(request, cancellationToken);
         if (!validationResult.IsValid)
@@ -29,7 +28,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Resul
 
         var user = new User
         {
-            Id = Guid.NewGuid(),
+            Id = Guid.CreateVersion7(),
             Email = request.Email,
             UserName = request.Email
         };

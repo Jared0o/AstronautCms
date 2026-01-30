@@ -1,6 +1,7 @@
 ﻿using AstronautCms.Modules.Users.Api.Routes;
 using AstronautCms.Modules.Users.Core;
 using AstronautCms.Modules.Users.Infrastructure;
+using AstronautCms.Modules.Users.Infrastructure.Helpers;
 using AstronautCms.Shared.Abstract.Modules;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
@@ -22,9 +23,10 @@ public class UserModule : IModule
     public void RegisterEndpoints(RouteGroupBuilder routeBuilder)
         => routeBuilder.MapUserEndpoints();
 
-    public Task RegisterMiddleware(IApplicationBuilder app)
+    public async Task RegisterMiddleware(IApplicationBuilder app)
     {
-        // No middlewares to register for this module
-        return Task.CompletedTask;
+        await using var scope = app.ApplicationServices.CreateAsyncScope();
+        var serviceProvider = scope.ServiceProvider;
+        await ApplyUserMigrations.ApplyMigrations(serviceProvider);
     }
 }

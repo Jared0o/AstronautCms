@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
 
-namespace AstronautCms.Modules.Users.Core.Commands;
+namespace AstronautCms.Modules.Users.Core.Commands.CreateUser;
 
-public class CreateUserCommandValidator : AbstractValidator<CreateUserCommand>
+public class CreateUserCommandValidator : AbstractValidator<CreateUserDto>
 {
     public CreateUserCommandValidator()
     {

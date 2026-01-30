@@ -3,6 +3,7 @@
 public abstract record Error
 {
     public string Message { get; }
+    public string Type => GetType().Name;
 
     protected Error(string message)
     {
