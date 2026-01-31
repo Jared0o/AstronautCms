@@ -36,4 +36,9 @@ public class UserRepository : IUserRepository
          
             return Result.Success();
     }
+
+    public Task<User> LogInUserAsync(string email, string password)
+    {
+        throw new NotImplementedException();
+    }
 }

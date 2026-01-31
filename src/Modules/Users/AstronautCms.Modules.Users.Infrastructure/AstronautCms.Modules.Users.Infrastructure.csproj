@@ -15,4 +15,8 @@
       <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Services\" />
+    </ItemGroup>
+
 </Project>

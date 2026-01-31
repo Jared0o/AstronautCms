@@ -1,5 +1,7 @@
 ﻿using AstronautCms.Modules.Users.Core.Dtos;
 using AstronautCms.Modules.Users.Core.Models;
+using AstronautCms.Modules.Users.Core.Repositories;
+using AstronautCms.Modules.Users.Core.Services;
 using AstronautCms.Shared.Abstract.Result;
 using AstronautCms.Shared.Abstract.Result.CustomErrors;
 using FluentValidation;
@@ -9,13 +11,15 @@ namespace AstronautCms.Modules.Users.Core.Commands.LogInUser;
 
 public sealed class LogInUserUseCase
 {
-    private readonly UserManager<User> _userManager;
+    private readonly IUserRepository _userRepository;
     private readonly IValidator<LogInUserDto> _validator;
+    private readonly ITokenGenerator _tokenGenerator;
 
-    public LogInUserUseCase(UserManager<User> userManager, IValidator<LogInUserDto> validator)
+    public LogInUserUseCase(IUserRepository userRepository, IValidator<LogInUserDto> validator, ITokenGenerator tokenGenerator)
     {
-        _userManager = userManager;
+        _userRepository = userRepository;
         _validator = validator;
+        _tokenGenerator = tokenGenerator;
     }
 
     public async Task<Result<TokenDto>> Execute(LogInUserDto request, CancellationToken ct)
@@ -27,8 +31,21 @@ public sealed class LogInUserUseCase
             var validationError = validationResult.ToValidationError();
             return Result<TokenDto>.Failure(validationError);
         }
+
+        var user = await _userManager.FindByEmailAsync(request.Email);
+        if (user == null)
+        {
+            return Result<TokenDto>.Failure(new NotFoundError("User not found."));
+        }
+        var passwordValid = await _userManager.CheckPasswordAsync(user, request.Password);
+        if (!passwordValid)
+        {
+            return Result<TokenDto>.Failure(new UnauthorizedError("Invalid password."));
+        }
+
+        var token = await _tokenGenerator.GenerateTokenAsync(user);
         
-        
-        
+        return Result<TokenDto>.Success(new TokenDto(token));
+
     } 
 }
