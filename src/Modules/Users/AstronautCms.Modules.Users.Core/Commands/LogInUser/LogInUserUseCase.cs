@@ -1,11 +1,9 @@
 ﻿using AstronautCms.Modules.Users.Core.Dtos;
-using AstronautCms.Modules.Users.Core.Models;
 using AstronautCms.Modules.Users.Core.Repositories;
 using AstronautCms.Modules.Users.Core.Services;
 using AstronautCms.Shared.Abstract.Result;
 using AstronautCms.Shared.Abstract.Result.CustomErrors;
 using FluentValidation;
-using Microsoft.AspNetCore.Identity;
 
 namespace AstronautCms.Modules.Users.Core.Commands.LogInUser;
 
@@ -32,8 +30,12 @@ public sealed class LogInUserUseCase
             return Result<TokenDto>.Failure(validationError);
         }
 
-        var user = await _userManager.FindByEmailAsync(request.Email);
-        if (user == null)
+        var userExists = await _userRepository.UserExistsAsync(request.Email);
+        if(!userExists.IsSuccess)
+        {
+            return Result<TokenDto>.Failure(new UnauthorizedError("Something went wrong."));
+        }
+        if (!userExists.Value)
         {
             return Result<TokenDto>.Failure(new NotFoundError("User not found."));
         }

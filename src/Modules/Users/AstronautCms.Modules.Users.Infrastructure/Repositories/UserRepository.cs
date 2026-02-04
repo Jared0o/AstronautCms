@@ -39,6 +39,5 @@ public class UserRepository : IUserRepository
 
     public Task<User> LogInUserAsync(string email, string password)
     {
-        throw new NotImplementedException();
     }
 }
