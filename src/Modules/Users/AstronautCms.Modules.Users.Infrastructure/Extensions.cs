@@ -1,7 +1,9 @@
 ﻿using AstronautCms.Modules.Users.Core.Models;
 using AstronautCms.Modules.Users.Core.Repositories;
+using AstronautCms.Modules.Users.Core.Services;
 using AstronautCms.Modules.Users.Infrastructure.DbContext;
 using AstronautCms.Modules.Users.Infrastructure.Repositories;
+using AstronautCms.Modules.Users.Infrastructure.Services;
 using AstronautCms.Shared.Infrastructure.Database;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
@@ -14,6 +16,7 @@ public static class Extensions
     public static IServiceCollection AddUserInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<ITokenGenerator, TokenGenerator>();
         
         services.AddPostgres<UserDbContext>(new DatabaseOptions()
         {
