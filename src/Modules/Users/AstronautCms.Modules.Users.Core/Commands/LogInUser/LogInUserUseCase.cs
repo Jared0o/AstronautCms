@@ -23,31 +23,17 @@ public sealed class LogInUserUseCase
     public async Task<Result<TokenDto>> Execute(LogInUserDto request, CancellationToken ct)
     {
         var validationResult = await _validator.ValidateAsync(request, ct);
-
         if (!validationResult.IsValid)
-        {
-            var validationError = validationResult.ToValidationError();
-            return Result<TokenDto>.Failure(validationError);
-        }
+            return Result<TokenDto>.Failure(validationResult.ToValidationError());
 
-        var userExists = await _userRepository.UserExistsAsync(request.Email);
-        if(!userExists.IsSuccess)
-        {
-            return Result<TokenDto>.Failure(new UnauthorizedError("Something went wrong."));
-        }
-        if (!userExists.Value)
-        {
-            return Result<TokenDto>.Failure(new NotFoundError("User not found."));
-        }
-        var passwordValid = await _userManager.CheckPasswordAsync(user, request.Password);
-        if (!passwordValid)
-        {
-            return Result<TokenDto>.Failure(new UnauthorizedError("Invalid password."));
-        }
+        var userResult = await _userRepository.CheckUserAndPasswordAsync(request.Email, request.Password, ct);
 
-        var token = await _tokenGenerator.GenerateTokenAsync(user);
-        
+        if (userResult is not { IsSuccess: true, Value: { } user })
+            return Result<TokenDto>.Failure(userResult.Error ?? new BaseError("Something went wrong during login."));
+
+        var token = await _tokenGenerator.GenerateTokenAsync(user, ct);
+
         return Result<TokenDto>.Success(new TokenDto(token));
+    }
 
-    } 
 }

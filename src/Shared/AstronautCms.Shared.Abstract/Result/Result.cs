@@ -21,6 +21,13 @@ public class Result<T>
     public static Result<T> Success(T value) => new(value);
 
     public static Result<T> Failure(Error error) => new(error);
+    
+    public T GetValueOrThrow()
+    {
+        if (!IsSuccess)
+            throw new InvalidOperationException("Result is failure.");
+        return Value ?? throw new InvalidOperationException("Result has no value.");
+    }
 }
 
 public class Result

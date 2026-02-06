@@ -6,7 +6,6 @@ namespace AstronautCms.Modules.Users.Core.Repositories;
 
 public interface IUserRepository
 {
-    Task<Result> CreateUserAsync(User user, string password);
-    Task<Result<User>> LogInUserAsync(string email, string password);
-    Task<Result<bool>> UserExistsAsync(string email);
+    Task<Result> CreateUserAsync(User user, string password, CancellationToken ct = default);
+    Task<Result<User>> CheckUserAndPasswordAsync(string email, string password, CancellationToken ct = default);
 }

@@ -17,9 +17,9 @@ public class CreateUserUseCase
         _userRepository = userRepository;
     }
     
-    public async Task<Result> Execute(CreateUserDto request, CancellationToken cancellationToken)
+    public async Task<Result> Execute(CreateUserDto request, CancellationToken ct)
     {
-        var validationResult = await _validator.ValidateAsync(request, cancellationToken);
+        var validationResult = await _validator.ValidateAsync(request, ct);
         if (!validationResult.IsValid)
         {
             var validationError = validationResult.ToValidationError();
@@ -33,6 +33,6 @@ public class CreateUserUseCase
             UserName = request.Email
         };
         
-        return await _userRepository.CreateUserAsync(user, request.Password);
+        return await _userRepository.CreateUserAsync(user, request.Password, ct);
     }
 }

@@ -16,7 +16,7 @@ public class UserRepository : IUserRepository
         _userManager = userManager;
     }
     
-    public async Task<Result> CreateUserAsync(User user, string password)
+    public async Task<Result> CreateUserAsync(User user, string password, CancellationToken ct = default)
     {
          var userExists = await _userManager.FindByEmailAsync(user.Email);
          
@@ -37,7 +37,22 @@ public class UserRepository : IUserRepository
             return Result.Success();
     }
 
-    public Task<User> LogInUserAsync(string email, string password)
+    public async Task<Result<User>> CheckUserAndPasswordAsync(string email, string password, CancellationToken ct = default)
     {
+        var user = await _userManager.FindByEmailAsync(email);
+        
+        if (user == null)
+        {
+            return Result<User>.Failure(new NotFoundError("User not found."));
+        }
+        
+        var isPasswordValid = await _userManager.CheckPasswordAsync(user, password);
+        
+        if (!isPasswordValid)
+        {
+            return Result<User>.Failure(new InvalidCredentialsError());
+        }
+        
+        return Result<User>.Success(user);
     }
 }
