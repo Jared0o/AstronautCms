@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Shared\AstronautEcommerce.Shared.Infrastructure\AstronautEcommerce.Shared.Infrastructure.csproj" />
+      <ProjectReference Include="..\AstronautEcommerce.Modules.Users.Core\AstronautEcommerce.Modules.Users.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
+      <PackageReference Include="System.IdentityModel.Tokens.Jwt" />
+    </ItemGroup>
+
+</Project>

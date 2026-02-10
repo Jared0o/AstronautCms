@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{90DA2701-BDD9-44BF-B491-B8DBF3318EFE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{7DD1C12D-1484-4E3B-9066-D353258B5C15}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{875DB382-F601-4CED-A9D7-9202B67E0D50}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{BA65204F-49BD-4DE7-A13E-B918487ACE54}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{F74C24C5-1330-4EED-9B67-691ED1D0772F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstronautEcommerce.Api", "src\Api\AstronautEcommerce.Api\AstronautEcommerce.Api.csproj", "{D52BB696-947E-426B-B132-A24D76696E58}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Users", "Users", "{8D2ED53B-7089-4B92-9944-C2DEF31D59F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstronautEcommerce.Modules.Users.Core", "src\Modules\Users\AstronautEcommerce.Modules.Users.Core\AstronautEcommerce.Modules.Users.Core.csproj", "{69ABF2CD-BC47-4F9A-87DB-07E1E712DC97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstronautEcommerce.Modules.Users.Api", "src\Modules\Users\AstronautEcommerce.Modules.Users.Api\AstronautEcommerce.Modules.Users.Api.csproj", "{1286E0EF-45E8-4B40-8FF4-7ED1E36A70B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstronautEcommerce.Modules.Users.Infrastructure", "src\Modules\Users\AstronautEcommerce.Modules.Users.Infrastructure\AstronautEcommerce.Modules.Users.Infrastructure.csproj", "{99687E23-FBED-47D7-B9A2-7D1A7F7F1A69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstronautEcommerce.Shared.Abstract", "src\Shared\AstronautEcommerce.Shared.Abstract\AstronautEcommerce.Shared.Abstract.csproj", "{EDC630F0-ED6C-4993-8B54-FEC40AD41FFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstronautEcommerce.Shared.Infrastructure", "src\Shared\AstronautEcommerce.Shared.Infrastructure\AstronautEcommerce.Shared.Infrastructure.csproj", "{591D021B-7D6A-4CDB-B81E-24866C045910}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{875DB382-F601-4CED-A9D7-9202B67E0D50} = {90DA2701-BDD9-44BF-B491-B8DBF3318EFE}
+		{BA65204F-49BD-4DE7-A13E-B918487ACE54} = {90DA2701-BDD9-44BF-B491-B8DBF3318EFE}
+		{F74C24C5-1330-4EED-9B67-691ED1D0772F} = {90DA2701-BDD9-44BF-B491-B8DBF3318EFE}
+		{D52BB696-947E-426B-B132-A24D76696E58} = {BA65204F-49BD-4DE7-A13E-B918487ACE54}
+		{8D2ED53B-7089-4B92-9944-C2DEF31D59F0} = {875DB382-F601-4CED-A9D7-9202B67E0D50}
+		{69ABF2CD-BC47-4F9A-87DB-07E1E712DC97} = {8D2ED53B-7089-4B92-9944-C2DEF31D59F0}
+		{1286E0EF-45E8-4B40-8FF4-7ED1E36A70B9} = {8D2ED53B-7089-4B92-9944-C2DEF31D59F0}
+		{99687E23-FBED-47D7-B9A2-7D1A7F7F1A69} = {8D2ED53B-7089-4B92-9944-C2DEF31D59F0}
+		{EDC630F0-ED6C-4993-8B54-FEC40AD41FFD} = {F74C24C5-1330-4EED-9B67-691ED1D0772F}
+		{591D021B-7D6A-4CDB-B81E-24866C045910} = {F74C24C5-1330-4EED-9B67-691ED1D0772F}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D52BB696-947E-426B-B132-A24D76696E58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D52BB696-947E-426B-B132-A24D76696E58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D52BB696-947E-426B-B132-A24D76696E58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D52BB696-947E-426B-B132-A24D76696E58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69ABF2CD-BC47-4F9A-87DB-07E1E712DC97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69ABF2CD-BC47-4F9A-87DB-07E1E712DC97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69ABF2CD-BC47-4F9A-87DB-07E1E712DC97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69ABF2CD-BC47-4F9A-87DB-07E1E712DC97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1286E0EF-45E8-4B40-8FF4-7ED1E36A70B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1286E0EF-45E8-4B40-8FF4-7ED1E36A70B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1286E0EF-45E8-4B40-8FF4-7ED1E36A70B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1286E0EF-45E8-4B40-8FF4-7ED1E36A70B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99687E23-FBED-47D7-B9A2-7D1A7F7F1A69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99687E23-FBED-47D7-B9A2-7D1A7F7F1A69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99687E23-FBED-47D7-B9A2-7D1A7F7F1A69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99687E23-FBED-47D7-B9A2-7D1A7F7F1A69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDC630F0-ED6C-4993-8B54-FEC40AD41FFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDC630F0-ED6C-4993-8B54-FEC40AD41FFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDC630F0-ED6C-4993-8B54-FEC40AD41FFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDC630F0-ED6C-4993-8B54-FEC40AD41FFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{591D021B-7D6A-4CDB-B81E-24866C045910}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{591D021B-7D6A-4CDB-B81E-24866C045910}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{591D021B-7D6A-4CDB-B81E-24866C045910}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{591D021B-7D6A-4CDB-B81E-24866C045910}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
